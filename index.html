@@ -175,9 +175,10 @@ nav {
 .gallery-main img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   transition: opacity 0.2s;
+  background: var(--blue-50);
 }
 .placeholder {
   display: flex;
@@ -538,7 +539,7 @@ footer {
     <div class="project-card">
       <div class="gallery-panel">
         <div class="gallery-main" id="gm-spacecraft">
-          <img src="images/spacecraft/main.png" alt="Spacecraft Concept Render"
+          <img src="images/spacecraft/main.PNG" alt="Spacecraft Concept Render"
             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <div class="placeholder" style="display:none">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2d6db4" stroke-width="1"><path d="M12 2L8 8H3l4 4-1.5 6L12 15l6.5 3L17 12l4-4h-5L12 2z"/></svg>
@@ -854,8 +855,8 @@ footer {
 
 <script>
 const galleries = [
-  { mainId:'gm-spacecraft', thumbsId:'gt-spacecraft', folder:'images/spacecraft/', images:['main.png','01.png','02.png','03.png','04.png'], alt:'Spacecraft Concept Render' },
-  { mainId:'gm-ramp',    thumbsId:'gt-ramp',    folder:'images/ada-ramp/',    images:['main.png','01.png','02.png','03.png','04.png','05.png'], alt:'ADA Ramp' },
+  { mainId:'gm-spacecraft', thumbsId:'gt-spacecraft', folder:'images/spacecraft/', images:['main.PNG','01.PNG','02.PNG','03.PNG','04.PNG'], alt:'Spacecraft Concept Render' },
+  { mainId:'gm-ramp',    thumbsId:'gt-ramp',    folder:'images/ada-ramp/',    images:['main.png','01.png','02.png','03.png','04.png','05.jpeg'], alt:'ADA Ramp' },
   { mainId:'gm-truss',   thumbsId:'gt-truss',   folder:'images/truss-bridge/', images:['main.png','01.png','02.png','03.png','04.jpg','05.jpg'], alt:'Truss Bridge' },
   { mainId:'gm-dice',    thumbsId:'gt-dice',    folder:'images/dice/',         images:['main.png','02.png','assembly.png','pla.png','brass.png','acrylic.png','steel.png','wood.png','aluminum.png','mass_properties.png'], alt:'3D Dice' },
   { mainId:'gm-railgun', thumbsId:'gt-railgun', folder:'images/railgun/',      images:['main.png','01.png','02.png','03.png'], alt:'Rail Gun Analysis' }
