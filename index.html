@@ -79,24 +79,6 @@ nav {
   gap: 4rem;
   align-items: center;
 }
-.hero-eyebrow {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--blue-400);
-  margin-bottom: 1.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.hero-eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 24px;
-  height: 1px;
-  background: var(--blue-400);
-}
 .hero-title {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: clamp(2.8rem, 5vw, 4.2rem);
@@ -148,14 +130,15 @@ nav {
 
 .project-card {
   background: var(--white);
-  border: 1px solid var(--rule);
+  border: 2px solid var(--blue-200);
   border-radius: 12px;
   overflow: hidden;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  box-shadow: 0 2px 12px rgba(45,109,180,0.08);
 }
-.project-card:hover { box-shadow: 0 4px 24px rgba(45,109,180,0.09); }
+.project-card:hover { box-shadow: 0 6px 28px rgba(45,109,180,0.16); border-color: var(--blue-400); }
 
 .gallery-panel {
   background: var(--blue-50);
@@ -516,7 +499,7 @@ footer {
       </div>
     </div>
     <div>
-      <p class="hero-desc">Senior-standing dual-degree student at the University of Nevada, Reno pursuing BS degrees in Aerospace and Mechanical Engineering. Focus on fluid systems, aerodynamics, structural design, and systems and controls. Currently working at Space Ocean Corp as Assistant Deputy Director of Engineering on an active spacecraft program.</p>
+      <p class="hero-desc">Senior-standing dual-degree student at the University of Nevada, Reno pursuing BS degrees in Aerospace and Mechanical Engineering. Focus on fluid systems, aerodynamics, and structural design. Currently working at Space Ocean Corp as Assistant Deputy Director of Engineering across multiple active spacecraft programs.</p>
       <div class="hero-meta">
         <div class="meta-row"><span>University</span><span class="v">University of Nevada, Reno</span></div>
         <div class="meta-row"><span>Program</span><span class="v">BS AE + BS ME (Dual)</span></div>
@@ -841,9 +824,8 @@ footer {
     </div>
     <div class="about-text">
       <p>Aerospace and Mechanical Engineering student at the University of Nevada, Reno, pursuing a dual degree with a focus on design engineering in fluids, aerodynamics, and dynamics. Those have always been the areas that clicked for me, and they point toward the work I want to do: designing spacecraft systems or pushing aerodynamic performance on something like a racing application.</p>
-      <p>Since late 2025 I've been working with Space Ocean as an Assistant Deputy Director and Engineering Assistant on an active spacecraft program. I've led development of program review materials, presented to the CEO and design review team, directed engineers on documentation deliverables, and authored technical documents including risk assessments, CONOPS, and system requirement documents.</p>
-      <p>On the design side I've led multiple SolidWorks projects ranging from ADA-compliant structural design to precision mass property engineering, and I hold a CSWA certification. I care about getting the details right, whether that's hitting micrometer-level tolerances on an assembly or making sure a risk assessment tells the full story.</p>
-      <p>This portfolio collects my work from coursework and independent projects. It's actively growing as I complete more work worth showing.</p>
+      <p>Since late 2025 I've been working at Space Ocean Corp as Assistant Deputy Director of Engineering, where I work directly with the Director of Engineering to support upcoming spacecraft programs at an early-stage aerospace startup. I've built SolidWorks models for concept visualization, drafted and presented program review materials to leadership and design review teams, directed engineers on documentation deliverables, and authored technical documents including risk assessments, CONOPS, and system requirement documents.</p>
+      <p>On the design and analysis side, I've led SolidWorks projects ranging from ADA-compliant structural design to precision mass property engineering, and written MATLAB solvers for optimization and dynamic system analysis. I hold a CSWA certification and care about getting the details right, whether that's hitting micrometer-level tolerances on an assembly or making sure the math checks out against simulation.</p>
     </div>
   </div>
 </div>
