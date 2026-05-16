@@ -175,9 +175,10 @@ nav {
 .gallery-main img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
   transition: opacity 0.2s;
+  background: var(--blue-50);
 }
 .placeholder {
   display: flex;
@@ -210,7 +211,7 @@ nav {
   width: 52px;
   height: 40px;
   border-radius: 5px;
-  border: 2px solid transparent;
+  border: 2px solid var(--rule);
   overflow: hidden;
   cursor: pointer;
   flex-shrink: 0;
@@ -397,6 +398,84 @@ footer {
   letter-spacing: 0.06em;
 }
 
+.certs-section {
+  background: var(--cream);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.certs-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.cert-card {
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex: 1 1 340px;
+  max-width: 520px;
+  transition: box-shadow 0.2s;
+}
+.cert-card:hover { box-shadow: 0 4px 24px rgba(45,109,180,0.09); }
+.cert-badge {
+  width: 52px;
+  height: 52px;
+  background: var(--blue-50);
+  border: 1px solid var(--blue-100);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.cert-badge svg { width: 24px; height: 24px; }
+.cert-body { flex: 1; }
+.cert-name {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+.cert-issuer {
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-bottom: 0.75rem;
+}
+.cert-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.cert-pill {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+.cert-pill.date {
+  background: var(--blue-50);
+  color: var(--blue-800);
+  border: 1px solid var(--blue-100);
+}
+.cert-pill.id {
+  background: transparent;
+  color: var(--ink-4);
+  border: 1px solid var(--rule);
+  font-family: monospace;
+  font-size: 10px;
+}
+.cert-pill.pending {
+  background: #fef9ee;
+  color: #92600a;
+  border: 1px solid #fde68a;
+}
+
 @media (max-width: 800px) {
   nav { padding: 0 1.5rem; }
   .hero { padding: 3rem 1.5rem; }
@@ -417,6 +496,7 @@ footer {
   <ul class="nav-links">
     <li><a href="#projects">Projects</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -425,7 +505,6 @@ footer {
 <div class="hero">
   <div class="hero-inner">
     <div>
-      <p class="hero-eyebrow">Engineering Design Portfolio</p>
       <h1 class="hero-title">Ryder <span class="accent">Dutil</span></h1>
       <p class="hero-subtitle">Aerospace &amp; Mechanical Engineering</p>
       <div class="hero-chips">
@@ -437,12 +516,16 @@ footer {
       </div>
     </div>
     <div>
-      <p class="hero-desc">Junior-standing dual-degree student at the University of Nevada, Reno pursuing BS degrees in Aerospace and Mechanical Engineering. Emphasis on fluid systems, aerodynamics, and structural design. All models built in SolidWorks.</p>
+      <p class="hero-desc">Senior-standing dual-degree student at the University of Nevada, Reno pursuing BS degrees in Aerospace and Mechanical Engineering. Focus on fluid systems, aerodynamics, structural design, and systems and controls. Currently working at Space Ocean Corp as Assistant Deputy Director of Engineering on an active spacecraft program.</p>
       <div class="hero-meta">
         <div class="meta-row"><span>University</span><span class="v">University of Nevada, Reno</span></div>
         <div class="meta-row"><span>Program</span><span class="v">BS AE + BS ME (Dual)</span></div>
         <div class="meta-row"><span>Expected</span><span class="v">Spring 2028</span></div>
       </div>
+      <a class="btn-download" href="downloads/Ryder%20Dutil%20Resume%202026.pdf" download="Ryder Dutil Resume 2026.pdf" style="margin-top:1.5rem;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Download Resume
+      </a>
     </div>
   </div>
 </div>
@@ -455,10 +538,126 @@ footer {
   <div class="section-rule"></div>
   <div class="projects-stack">
 
-    <!-- PROJECT 01: ADA RAMP
-         Folder: images/ada-ramp/
-         Files:  main.png, 01.png, 02.png, 03.png, 04.png, 05.png
-         ZIP:    downloads/ada-ramp-stl.zip -->
+    <!-- PROJECT 01: SPACE OCEAN SPACECRAFT -->
+    <div class="project-card">
+      <div class="gallery-panel">
+        <div class="gallery-main" id="gm-spacecraft">
+          <img src="images/spacecraft/main.PNG" alt="Spacecraft Concept Render"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:none">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2d6db4" stroke-width="1"><path d="M12 2L8 8H3l4 4-1.5 6L12 15l6.5 3L17 12l4-4h-5L12 2z"/></svg>
+            <p class="placeholder-text">images/spacecraft/main.png</p>
+          </div>
+        </div>
+        <div class="gallery-thumbs" id="gt-spacecraft"></div>
+      </div>
+      <div class="project-info">
+        <div>
+          <h3 class="project-name">Spacecraft Concept Render</h3>
+          <p class="project-desc">SolidWorks model of a proposed spacecraft developed at Space Ocean Corp, rendered for investor presentations and internal design reviews. Built from program manager drawing drafts, the model was used to support early-stage concept visualization. Rendered on-orbit over Enceladus.</p>
+        </div>
+        <div class="project-specs">
+          <div class="spec-row"><span class="spec-key">Date</span><span class="spec-val">Oct. 2025 – Present</span></div>
+          <div class="spec-row"><span class="spec-key">Software</span><span class="spec-val">SolidWorks</span></div>
+          <div class="spec-row"><span class="spec-key">Role</span><span class="spec-val">Sole Modeler</span></div>
+          <div class="spec-row"><span class="spec-key">Usage</span><span class="spec-val">Investor &amp; internal presentations</span></div>
+        </div>
+        <div class="project-footer">
+          <div class="tags">
+            <span class="tag">SolidWorks</span><span class="tag">Spacecraft</span><span class="tag">Concept Design</span><span class="tag">Professional</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 02: 3D DICE -->
+    <div class="project-card">
+      <div class="gallery-panel">
+        <div class="gallery-main" id="gm-dice">
+          <img src="images/dice/main.png" alt="3D Dice"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:none">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2d6db4" stroke-width="1"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><circle cx="12" cy="12" r="1.5" fill="#2d6db4"/></svg>
+            <p class="placeholder-text">images/dice/main.png</p>
+          </div>
+        </div>
+        <div class="gallery-thumbs" id="gt-dice"></div>
+      </div>
+      <div class="project-info">
+        <div>
+          <h3 class="project-name">Balanced Six-Sided Die Assembly</h3>
+          <p class="project-desc">Final project for ME 350: Computer-Aided Design and Manufacturing at UNR. Designed a balanced six-sided die achieving micrometer-level center-of-mass accuracy across six distinct materials (PLA, brass, steel, acrylic, wood, and aluminum) with varying densities and discrete thickness constraints. A custom MATLAB solver using multi-start optimization swept discrete thickness combinations to simultaneously satisfy moment of inertia, center-of-mass, and products of inertia tolerances. All three grading error metrics were met: CG error 0.115% (req. &lt;2%), moment error 1.495% (req. &lt;3%), and product error 0.122% (req. &lt;0.2%). Deliverables included individual part drawings for each face, an exploded assembly view, a full BOM, and verified mass properties from SolidWorks.</p>
+        </div>
+        <div class="project-specs">
+          <div class="spec-row"><span class="spec-key">Date</span><span class="spec-val">Oct. – Dec. 2025</span></div>
+          <div class="spec-row"><span class="spec-key">CoM (x, y, z)</span><span class="spec-val">(-0.10, -0.04, -0.04) cm</span></div>
+          <div class="spec-row"><span class="spec-key">CG Error</span><span class="spec-val">0.115% (req. &lt;2%)</span></div>
+          <div class="spec-row"><span class="spec-key">Ixx, Iyy, Izz</span><span class="spec-val">8092.83, 8040.74, 8160.98 g·cm²</span></div>
+          <div class="spec-row"><span class="spec-key">Moment Error</span><span class="spec-val">1.495% (req. &lt;3%)</span></div>
+          <div class="spec-row"><span class="spec-key">Ixy, Ixz, Iyz</span><span class="spec-val">9.82, 1.79, -5.07 g·cm²</span></div>
+          <div class="spec-row"><span class="spec-key">Product Error</span><span class="spec-val">0.122% (req. &lt;0.2%)</span></div>
+          <div class="spec-row"><span class="spec-key">Cube Size</span><span class="spec-val">100 × 100 × 100 mm</span></div>
+          <div class="spec-row"><span class="spec-key">Materials</span><span class="spec-val">6 distinct materials</span></div>
+          <div class="spec-row"><span class="spec-key">Software</span><span class="spec-val">SolidWorks, MATLAB</span></div>
+          <div class="spec-row"><span class="spec-key">Context</span><span class="spec-val">ME 350, UNR</span></div>
+          <div class="spec-row"><span class="spec-key">Role</span><span class="spec-val">Sole Designer</span></div>
+        </div>
+        <div class="project-footer">
+          <div class="tags">
+            <span class="tag">SolidWorks</span><span class="tag">MATLAB</span><span class="tag">Mass Properties</span><span class="tag">Optimization</span><span class="tag">GD&amp;T</span>
+          </div>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;justify-content:center;">
+            <a class="btn-download" href="downloads/dice-stl.zip" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Download STL Files
+            </a>
+            <a class="btn-download" href="downloads/dice_balance_check.m" download>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Download MATLAB Solver
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 03: RAIL GUN -->
+    <div class="project-card">
+      <div class="gallery-panel">
+        <div class="gallery-main" id="gm-railgun">
+          <img src="images/railgun/main.png" alt="Rail Gun Analysis"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="placeholder" style="display:none">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2d6db4" stroke-width="1"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            <p class="placeholder-text">images/railgun/main.png</p>
+          </div>
+        </div>
+        <div class="gallery-thumbs" id="gt-railgun"></div>
+      </div>
+      <div class="project-info">
+        <div>
+          <h3 class="project-name">Electromechanical Rail Gun Analysis</h3>
+          <p class="project-desc">Systems and controls analysis of a linear DC machine modeled as a prototype rail gun, coupling electrical and mechanical subsystems via a shared magnetic field. Derived a 2×2 MIMO transfer function matrix using Laplace transforms and Cramer's rule, analyzed pole locations and dynamic stability, and evaluated steady-state performance limits including maximum safe sled speed and stall conditions under a 5 kA current constraint. Responsible for MATLAB implementation of Bode plots, inductance sensitivity analysis, and full Simulink verification of all transfer function blocks.</p>
+        </div>
+        <div class="project-specs">
+          <div class="spec-row"><span class="spec-key">Date</span><span class="spec-val">Apr. – May 2026</span></div>
+          <div class="spec-row"><span class="spec-key">System Type</span><span class="spec-val">2nd-order overdamped MIMO</span></div>
+          <div class="spec-row"><span class="spec-key">Tools</span><span class="spec-val">MATLAB, Simulink</span></div>
+          <div class="spec-row"><span class="spec-key">Context</span><span class="spec-val">ME 310 Systems &amp; Controls, UNR</span></div>
+          <div class="spec-row"><span class="spec-key">Role</span><span class="spec-val">MATLAB &amp; Simulink Lead</span></div>
+        </div>
+        <div class="project-footer">
+          <div class="tags">
+            <span class="tag">MATLAB</span><span class="tag">Simulink</span><span class="tag">Transfer Functions</span><span class="tag">Controls</span><span class="tag">Laplace</span>
+          </div>
+          <a class="btn-download" href="downloads/ME310_Final_Project.m" download>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download MATLAB Code
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 04: ADA RAMP -->
     <div class="project-card">
       <div class="gallery-panel">
         <div class="gallery-main" id="gm-ramp">
@@ -477,6 +676,7 @@ footer {
           <p class="project-desc">Full SolidWorks model of a concrete access ramp for the DeLaMare Library at UNR, designed to ADA slope and width specifications. Modeled with independent bodies to allow selective visibility of new versus existing structure during design review.</p>
         </div>
         <div class="project-specs">
+          <div class="spec-row"><span class="spec-key">Date</span><span class="spec-val">Jan. – May 2026</span></div>
           <div class="spec-row"><span class="spec-key">Concrete Volume</span><span class="spec-val">6.67 yd³</span></div>
           <div class="spec-row"><span class="spec-key">Software</span><span class="spec-val">SolidWorks</span></div>
           <div class="spec-row"><span class="spec-key">Context</span><span class="spec-val">Engineering Design, UNR</span></div>
@@ -494,10 +694,7 @@ footer {
       </div>
     </div>
 
-    <!-- PROJECT 02: TRUSS BRIDGE
-         Folder: images/truss-bridge/
-         Files:  main.png, 01.png, 02.png, 03.png, 04.jpg, 05.png
-         ZIP:    downloads/truss-bridge-stl.zip -->
+    <!-- PROJECT 05: TRUSS BRIDGE -->
     <div class="project-card">
       <div class="gallery-panel">
         <div class="gallery-main" id="gm-truss">
@@ -512,59 +709,25 @@ footer {
       </div>
       <div class="project-info">
         <div>
-          <h3 class="project-name">Truss Bridge</h3>
-          <p class="project-desc">SolidWorks model of a truss bridge structure. Designed with attention to member geometry, joint connections, and load path distribution. Add your span length, material, load conditions, or competition context here.</p>
+          <h3 class="project-name">Balsa Wood Truss Bridge</h3>
+          <p class="project-desc">Designed and built a balsa wood truss bridge for a statics course project at UNR. The objective was to demonstrate structural analysis concepts through physical construction and load testing. The bridge spanned 18.5 inches and was required to support 100 lbs at midspan. At test, it held 406 lbs before failure -- more than four times the design requirement.</p>
         </div>
         <div class="project-specs">
-          <div class="spec-row"><span class="spec-key">Software</span><span class="spec-val">SolidWorks</span></div>
-          <div class="spec-row"><span class="spec-key">Context</span><span class="spec-val">Engineering Design, UNR</span></div>
+          <div class="spec-row"><span class="spec-key">Date</span><span class="spec-val">Spring 2025</span></div>
+          <div class="spec-row"><span class="spec-key">Span</span><span class="spec-val">18.5 in</span></div>
+          <div class="spec-row"><span class="spec-key">Material</span><span class="spec-val">Balsa wood</span></div>
+          <div class="spec-row"><span class="spec-key">Load Requirement</span><span class="spec-val">100 lb</span></div>
+          <div class="spec-row"><span class="spec-key">Failure Load</span><span class="spec-val">406 lb (4× requirement)</span></div>
+          <div class="spec-row"><span class="spec-key">Context</span><span class="spec-val">Statics, UNR</span></div>
           <div class="spec-row"><span class="spec-key">Role</span><span class="spec-val">Lead Designer</span></div>
         </div>
         <div class="project-footer">
           <div class="tags">
-            <span class="tag">SolidWorks</span><span class="tag">Structural</span><span class="tag">Truss Analysis</span>
+            <span class="tag">Structural Analysis</span><span class="tag">Truss Design</span><span class="tag">Load Testing</span><span class="tag">Balsa</span>
           </div>
-          <a class="btn-download" href="downloads/truss-bridge-stl.zip" download>
+          <a class="btn-download" href="downloads/Statics_Bridge_Project_Ryder_Dutil.STL" download="Statics_Bridge_Project_Ryder_Dutil.STL">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            Download STL Files
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROJECT 03: 3D DICE
-         Folder: images/dice/
-         Files:  main.png, 01.png, 02.png, 03.png, 04.png, 05.png
-         ZIP:    downloads/dice-stl.zip -->
-    <div class="project-card">
-      <div class="gallery-panel">
-        <div class="gallery-main" id="gm-dice">
-          <img src="images/dice/main.png" alt="3D Dice"
-            onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="placeholder" style="display:none">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2d6db4" stroke-width="1"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><circle cx="12" cy="12" r="1.5" fill="#2d6db4"/></svg>
-            <p class="placeholder-text">images/dice/main.png</p>
-          </div>
-        </div>
-        <div class="gallery-thumbs" id="gt-dice"></div>
-      </div>
-      <div class="project-info">
-        <div>
-          <h3 class="project-name">3D Dice Set</h3>
-          <p class="project-desc">SolidWorks model of a 3D dice set with one render per face plus isometric views. Add context here about geometry constraints, tolerancing decisions, or design process.</p>
-        </div>
-        <div class="project-specs">
-          <div class="spec-row"><span class="spec-key">Views</span><span class="spec-val">Per face + isometric</span></div>
-          <div class="spec-row"><span class="spec-key">Software</span><span class="spec-val">SolidWorks</span></div>
-          <div class="spec-row"><span class="spec-key">Context</span><span class="spec-val">Independent / Coursework</span></div>
-        </div>
-        <div class="project-footer">
-          <div class="tags">
-            <span class="tag">SolidWorks</span><span class="tag">Geometry</span><span class="tag">3D Modeling</span>
-          </div>
-          <a class="btn-download" href="downloads/dice-stl.zip" download>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-            Download STL Files
+            Download STL File
           </a>
         </div>
       </div>
@@ -584,7 +747,7 @@ footer {
     <div class="skill-card">
       <p class="skill-card-label">CAD &amp; Modeling</p>
       <ul class="skill-list">
-        <li>SolidWorks</li>
+        <li>SolidWorks (CSWA)</li>
         <li>Part and assembly design</li>
         <li>Technical drawing</li>
         <li>Parametric modeling</li>
@@ -600,12 +763,12 @@ footer {
       </ul>
     </div>
     <div class="skill-card">
-      <p class="skill-card-label">Dynamics &amp; Aero</p>
+      <p class="skill-card-label">Dynamics &amp; Controls</p>
       <ul class="skill-list">
-        <li>Aerodynamics</li>
-        <li>Structural dynamics</li>
-        <li>Multi-DOF systems</li>
-        <li>MATLAB / Simulink</li>
+        <li>Transfer functions</li>
+        <li>Laplace / s-domain analysis</li>
+        <li>MATLAB &amp; Simulink</li>
+        <li>Bode plots &amp; stability</li>
       </ul>
     </div>
     <div class="skill-card">
@@ -621,6 +784,49 @@ footer {
 </div>
 </div>
 
+<section id="certifications" class="certs-section">
+<div class="section-wrap">
+  <div class="section-header">
+    <h2 class="section-title">Certifications</h2>
+  </div>
+  <div class="section-rule"></div>
+  <div class="certs-grid">
+
+    <div class="cert-card">
+      <div class="cert-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#2d6db4" stroke-width="1.5">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      </div>
+      <div class="cert-body">
+        <p class="cert-name">SOLIDWORKS CAD Design Associate</p>
+        <p class="cert-issuer">Dassault Syst&egrave;mes &mdash; Academic exam, University of Nevada, Reno</p>
+        <div class="cert-meta">
+          <span class="cert-pill date">October 22, 2025</span>
+          <span class="cert-pill id">C-3UBPLNRJWS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+        </svg>
+      </div>
+      <div class="cert-body">
+        <p class="cert-name">SOLIDWORKS Professional (CSWP)</p>
+        <p class="cert-issuer">Dassault Syst&egrave;mes</p>
+        <div class="cert-meta">
+          <span class="cert-pill pending">In progress</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
 <section id="about">
 <div class="section-wrap">
   <div class="section-header">
@@ -635,9 +841,9 @@ footer {
     </div>
     <div class="about-text">
       <p>Aerospace and Mechanical Engineering student at the University of Nevada, Reno, pursuing a dual degree with a focus on design engineering in fluids, aerodynamics, and dynamics. Those have always been the areas that clicked for me, and they point toward the work I want to do: designing spacecraft systems or pushing aerodynamic performance on something like a racing application.</p>
-      <p>Since late 2025 I've been working with Space Ocean as a Deputy Director and Engineering Assistant on an active spacecraft program. I've led development of program review materials, presented to the CEO and design review team, directed engineers on documentation deliverables, and authored technical documents including risk assessments, CONOPS, and system requirement documents.</p>
+      <p>Since late 2025 I've been working with Space Ocean as an Assistant Deputy Director and Engineering Assistant on an active spacecraft program. I've led development of program review materials, presented to the CEO and design review team, directed engineers on documentation deliverables, and authored technical documents including risk assessments, CONOPS, and system requirement documents.</p>
       <p>On the design side I've led multiple SolidWorks projects ranging from ADA-compliant structural design to precision mass property engineering, and I hold a CSWA certification. I care about getting the details right, whether that's hitting micrometer-level tolerances on an assembly or making sure a risk assessment tells the full story.</p>
-      <p>This portfolio collects my SolidWorks work from coursework and independent projects. It's actively growing as I complete more work worth showing.</p>
+      <p>This portfolio collects my work from coursework and independent projects. It's actively growing as I complete more work worth showing.</p>
     </div>
   </div>
 </div>
@@ -645,20 +851,22 @@ footer {
 
 <footer id="contact">
   <p class="footer-title">Let's connect.</p>
-  <p class="footer-sub">Open to internship opportunities in the Reno/Sparks area & Remote.</p>
+  <p class="footer-sub">Open to internship opportunities in the Reno/Sparks area &amp; Remote.</p>
   <div class="footer-links">
-    <a href="mailto:ryderdutil@email.com">ryderdutil@email.com</a>
+    <a href="mailto:ryderdutil@gmail.com">ryderdutil@gmail.com</a>
     <a href="https://www.linkedin.com/in/ryderdutil" target="_blank">LinkedIn</a>
     <a href="tel:+17329777566">+1 (732) 977-7566</a>
   </div>
-  <p class="footer-copy">Ryder Dutil | University of Nevada, Reno | AE & ME</p>
+  <p class="footer-copy">Ryder Dutil | University of Nevada, Reno | AE &amp; ME</p>
 </footer>
 
 <script>
 const galleries = [
-  { mainId:'gm-ramp',  thumbsId:'gt-ramp',  folder:'images/ada-ramp/',    images:['main.png','01.png','02.png','03.png','04.png','05.png'], alt:'ADA Ramp' },
-  { mainId:'gm-truss', thumbsId:'gt-truss', folder:'images/truss-bridge/', images:['main.png','01.png','02.png','03.png','04.jpg','05.png'], alt:'Truss Bridge' },
-  { mainId:'gm-dice',  thumbsId:'gt-dice',  folder:'images/dice/',         images:['main.png','01.png','02.png','03.png','04.png','05.png'], alt:'3D Dice' }
+  { mainId:'gm-spacecraft', thumbsId:'gt-spacecraft', folder:'images/spacecraft/', images:['main.PNG','01.PNG','02.PNG','03.PNG','04.PNG'], alt:'Spacecraft Concept Render' },
+  { mainId:'gm-ramp',    thumbsId:'gt-ramp',    folder:'images/ada-ramp/',    images:['main.png','01.png','02.png','03.png','04.png','05.jpeg'], alt:'ADA Ramp' },
+  { mainId:'gm-truss',   thumbsId:'gt-truss',   folder:'images/truss-bridge/', images:['main.png','01.png','02.png','03.png','04.jpg','05.jpg'], alt:'Truss Bridge' },
+  { mainId:'gm-dice',    thumbsId:'gt-dice',    folder:'images/dice/',         images:['main.png','02.png','assembly.png','pla.png','brass.png','acrylic.png','steel.png','wood.png','aluminum.png','mass_properties.png'], alt:'3D Dice' },
+  { mainId:'gm-railgun', thumbsId:'gt-railgun', folder:'images/railgun/',      images:['main.png','01.png','02.png','03.png'], alt:'Rail Gun Analysis' }
 ];
 
 galleries.forEach(g => {
